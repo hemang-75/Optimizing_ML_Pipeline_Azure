@@ -12,10 +12,6 @@ from azureml.data.dataset_factory import TabularDatasetFactory
 
 ds = TabularDatasetFactory.from_delimited_files(path="https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv")
 
-# x, y = clean_data(ds)
-
-# x_train,x_test,y_train,y_test = train_test_split(x,y,test_size=0.3)
-
 run = Run.get_context()
 
 def clean_data(data):
@@ -65,7 +61,14 @@ def main():
     model = LogisticRegression(C=args.C, max_iter=args.max_iter).fit(x_train, y_train)
 
     accuracy = model.score(x_test, y_test)
+    
+    os.makedirs('outputs',exist_ok = True)
+    
+    joblib.dump(model,'outputs/model.joblib')
+    
     run.log("Accuracy", np.float(accuracy))
 
 if __name__ == '__main__':
     main()
+
+
