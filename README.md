@@ -48,7 +48,7 @@ Out of all the models , the best performing model was a Soft Voting Ensemble fou
 ## Future work
 
 - One thing which i would want in future as further improvement will be to able to give different custom cross validation strategy to the AutoML model. 
-
+- I have initially provided AutoML with clean data and then i tried to run it with raw data to see whether it can do the cleaning and pre-processing by itself and it gave better results in that so i dont know how AutoML handled it itself and it saved my trouble of data cleaning. So i want to know whether it can do this data cleaning for all types of ML problems or not.
 
 ## Proof of cluster clean up
 
